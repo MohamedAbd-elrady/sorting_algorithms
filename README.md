@@ -18,9 +18,7 @@ Write down the time complexity of each algorithm in Big O notation. Also, provid
 
 Write down the time complexity of each algorithm in Big O notation.
 
-![Alt text][def]
-
-[def]: image.png
+![Alt text](image.png)
 
 ### Authors
 
