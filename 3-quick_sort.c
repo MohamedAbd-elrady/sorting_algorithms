@@ -1,4 +1,5 @@
 #include "sort.h"
+
 /**
  * swap_func - Swaps two integers in an array
  * @a: Pointer to the first integer
@@ -10,6 +11,7 @@ void swap_func(int *a, int *b)
 	*a = *b;
 	*b = temp;
 }
+
 /**
  * partition_func - Partitions the array for quick sort
  * @array: Array to be sorted
@@ -37,6 +39,7 @@ int partition_func(int *array, int down, int up, size_t size)
 	print_array(array, size);
 	return (i + 1);
 }
+
 /**
  * q_sort_recursive - Recursive function to perform Quick sort
  * @array: Array to be sorted
@@ -58,6 +61,7 @@ void q_sort_recursive(int *array, int down, int up, size_t size)
 		q_sort_recursive(array, pivot_index + 1, up, size);
 	}
 }
+
 /**
  * quick_sort - Sorts an array of integers in ascending order using Quick sort
  * @array: Array to be sorted
