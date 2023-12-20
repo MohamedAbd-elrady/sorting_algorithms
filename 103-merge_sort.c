@@ -81,13 +81,13 @@ void merge_sort_recursive(int *array, size_t size)
 	left = array;
 	right = array + mid;
 
+	merge_sort_recursive(left, mid);
+	merge_sort_recursive(right, size - mid);
+	
 	printf("Merging...\n[left]: ");
 	print_array(left, mid);
 	printf("[right]: ");
 	print_array(right, size - mid);
-
-	merge_sort_recursive(left, mid);
-	merge_sort_recursive(right, size - mid);
 
 	printf("[Done]: ");
 	merge_arrays(left, mid, right, size - mid);
