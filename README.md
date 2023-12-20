@@ -5,7 +5,7 @@
 > [selection sort](https://en.wikipedia.org/wiki/Selection_sort),
 > [quick sort (utilizing Lomuto's partition)](https://en.wikipedia.org/wiki/Quicksort), etc.
 
----
+
 ![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/248/willy-wonka.png)
 
 ### Description of what each file shows:
