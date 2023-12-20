@@ -1,56 +1,19 @@
 #include "sort.h"
 
-/* Function prototypes */
-void merge_sort_recursive(int *array, size_t size);
-void merge_arrays(int *left, size_t left_size, int *right, size_t right_size);
-void copy_merged_array(int *destination, int *source, size_t size);
-
 /**
- * merge_sort - Sorts an array of integers in ascending order using
- * the Merge sort algorithm.
- * @array: The array to be sorted.
- * @size: The size of the array.
+ * copy_merged_array - Copies merged array back to the original array.
+ * @destination: The destination array.
+ * @source: The source array.
+ * @size: The size of the arrays.
  */
-void merge_sort(int *array, size_t size)
+void copy_merged_array(int *destination, int *source, size_t size)
 {
-	if (array == NULL || size < 2)
+	size_t i;
+
+	for (i = 0; i < size; i++)
 	{
-		return;
+		destination[i] = source[i];
 	}
-	merge_sort_recursive(array, size);
-}
-
-/**
- * merge_sort_recursive - Recursively splits and merges the array.
- * @array: The array to be sorted.
- * @size: The size of the array.
- */
-void merge_sort_recursive(int *array, size_t size)
-{
-	size_t mid;
-	int *left, *right;
-
-	if (size < 2)
-	{
-		return;
-	}
-
-	mid = size / 2;
-
-	left = array;
-	right = array + mid;
-
-	printf("Merging...\n[left]: ");
-	print_array(left, mid);
-	printf("[right]: ");
-	print_array(right, size - mid);
-
-	merge_sort_recursive(left, mid);
-	merge_sort_recursive(right, size - mid);
-
-	printf("[Done]: ");
-	merge_arrays(left, mid, right, size - mid);
-	print_array(left, size);
 }
 
 /**
@@ -99,17 +62,49 @@ void merge_arrays(int *left, size_t left_size, int *right, size_t right_size)
 }
 
 /**
- * copy_merged_array - Copies merged array back to the original array.
- * @destination: The destination array.
- * @source: The source array.
- * @size: The size of the arrays.
+ * merge_sort_recursive - Recursively splits and merges the array.
+ * @array: The array to be sorted.
+ * @size: The size of the array.
  */
-void copy_merged_array(int *destination, int *source, size_t size)
+void merge_sort_recursive(int *array, size_t size)
 {
-	size_t i;
+	size_t mid;
+	int *left, *right;
 
-	for (i = 0; i < size; i++)
+	if (size < 2)
 	{
-		destination[i] = source[i];
+		return;
 	}
+
+	mid = size / 2;
+
+	left = array;
+	right = array + mid;
+
+	printf("Merging...\n[left]: ");
+	print_array(left, mid);
+	printf("[right]: ");
+	print_array(right, size - mid);
+
+	merge_sort_recursive(left, mid);
+	merge_sort_recursive(right, size - mid);
+
+	printf("[Done]: ");
+	merge_arrays(left, mid, right, size - mid);
+	print_array(left, size);
+}
+
+/**
+ * merge_sort - Sorts an array of integers in ascending order using
+ * the Merge sort algorithm.
+ * @array: The array to be sorted.
+ * @size: The size of the array.
+ */
+void merge_sort(int *array, size_t size)
+{
+	if (array == NULL || size < 2)
+	{
+		return;
+	}
+	merge_sort_recursive(array, size);
 }
