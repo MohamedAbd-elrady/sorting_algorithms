@@ -49,4 +49,3 @@ void counting_sort(int *array, size_t size)
     free(count);
     free(output);
 }
->>>>>>> 121ff779122b36dac3b0db4660e24f1de615364a
